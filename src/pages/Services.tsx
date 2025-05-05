@@ -2,7 +2,6 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import { 
-  Button,
   Card,
   CardContent,
   CardDescription,
@@ -10,6 +9,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import {
   Tabs,
   TabsContent,
