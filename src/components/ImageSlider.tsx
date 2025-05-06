@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 interface ImageSliderProps {
   images: string[];
@@ -9,18 +8,18 @@ interface ImageSliderProps {
   language?: string;
 }
 
-const ImageSlider: React.FC<ImageSliderProps> = ({ 
-  images, 
-  interval = 5000, 
+const ImageSlider: React.FC<ImageSliderProps> = ({
+  images,
+  interval = 5000,
   height = "h-96",
   overlay = true,
-  language
+  language,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     if (images.length === 0) return;
-    
+
     const slideInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, interval);
@@ -33,79 +32,83 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   };
 
   const landmarkNames = [
-    language === 'ar' ? 'قلعة حلب' : 'Aleppo Citadel',
-    language === 'ar' ? 'تدمر' : 'Palmyra',
-    language === 'ar' ? 'المسرح الروماني في بصرى' : 'Roman Theater in Bosra',
-    language === 'ar' ? 'قلعة حلب ليلاً' : 'Aleppo Citadel at Night',
-    language === 'ar' ? 'سور حماة التاريخي' : 'Historic Wall of Hama',
-    language === 'ar' ? 'بحيرة في حمص' : 'Lake in Homs',
-    language === 'ar' ? 'شاطئ اللاذقية' : 'Lattakia Beach',
-    language === 'ar' ? 'الكورنيش في طرطوس' : 'Tartous Corniche',
-    language === 'ar' ? 'ساعة حماة الشهيرة' : 'Famous Hama Clock Tower',
-    language === 'ar' ? 'نواعير حماة' : 'Hama Waterwheels',
-    language === 'ar' ? 'المسرح الروماني في بصرى' : 'Roman Theater in Bosra',
-    language === 'ar' ? 'الجامع الأموي في دمشق' : 'Umayyad Mosque in Damascus',
-    language === 'ar' ? 'قلعة حلب الجنوبية' : 'Southern Gate of Aleppo Citadel',
-    language === 'ar' ? 'جسر دير الزور المعلق' : 'Deir ez-Zor Suspension Bridge'
+    language === "ar" ? "قلعة حلب" : "Aleppo Citadel",
+    language === "ar" ? "نواعير حماة" : "Hama Waterwheels",
+    language === "ar" ? "المسرح الروماني في بصرى" : "Roman Theater in Bosra",
+    language === "ar" ? "المسجد الأموي في دمشق" : "Umayyad Mosque in Damascus",
+    language === "ar" ? "جامع حبيب النجار" : "Habib Al-Najjar Mosque",
+    language === "ar" ? "المسرح الروماني" : "Roman Theater",
+    language === "ar" ? "شاطئ اللاذقية" : "Lattakia Beach",
+    language === "ar" ? "جسر الحسكة" : "Hasakah Bridge",
+    language === "ar" ? "مدينة شهبا الأثرية" : "Ancient City of Shahba",
+    language === "ar" ? "طرطوس" : "Tartous",
   ];
 
   // Make sure we have a valid current index and there are images to display
-  const safeIndex = images && images.length > 0 ? (currentIndex < images.length ? currentIndex : 0) : 0;
-  
+  const safeIndex =
+    images && images.length > 0
+      ? currentIndex < images.length
+        ? currentIndex
+        : 0
+      : 0;
+
   // If there are no images, show a placeholder
   if (!images || images.length === 0) {
     return (
-      <div className={`relative w-full ${height} bg-gray-200 flex items-center justify-center rounded-lg`}>
+      <div
+        className={`relative w-full ${height} bg-gray-200 flex items-center justify-center rounded-lg`}
+      >
         <p className="text-gray-500">No images available</p>
       </div>
     );
   }
 
-  // Add the new uploaded landmark images to the slider
-  const newLandmarkImages = [
-    '/lovable-uploads/c8981cb3-6f0c-4e46-a6ce-6a2c177fdb9b.png', // Palmyra ruins
-    '/lovable-uploads/1b903316-d238-45c9-9762-48e6771fbb6c.png', // Coastal landscape
-  ];
-
-  // Combine the original images with the new ones if provided
-  const combinedImages = newLandmarkImages.length > 0 ? [...images, ...newLandmarkImages] : images;
+  // Use the images passed from the parent component
+  const combinedImages = images;
 
   return (
-    <div className={`relative w-full ${height} overflow-hidden rounded-lg shadow-xl`}>
+    <div
+      className={`relative w-full ${height} overflow-hidden rounded-lg shadow-xl`}
+    >
       {combinedImages.map((img, index) => (
         <div
           key={index}
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-            index === safeIndex ? 'opacity-100' : 'opacity-0'
+            index === safeIndex ? "opacity-100" : "opacity-0"
           }`}
-          style={{
-            backgroundImage: `url('${img}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+        >
+          <img
+            src={img}
+            alt={
+              landmarkNames[index % landmarkNames.length] || "Syrian landmark"
+            }
+            className="w-full h-full object-cover"
+          />
+        </div>
       ))}
-      
+
       {overlay && (
         <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-end">
           <div className="p-6 text-white">
-            <h2 className="text-2xl font-bold mb-2">{landmarkNames[safeIndex % landmarkNames.length] || ''}</h2>
+            <h2 className="text-2xl font-bold mb-2">
+              {landmarkNames[safeIndex % landmarkNames.length] || ""}
+            </h2>
             <p className="text-sm">
-              {language === 'ar' 
-                ? 'اكتشف جمال سوريا وتراثها الغني عبر البوابة الرقمية السورية' 
-                : 'Discover the beauty of Syria and its rich heritage through the Syrian Digital Gateway'}
+              {language === "ar"
+                ? "اكتشف جمال سوريا وتراثها الغني عبر البوابة الرقمية السورية"
+                : "Discover the beauty of Syria and its rich heritage through the Syrian Digital Gateway"}
             </p>
           </div>
         </div>
       )}
-      
+
       <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
         {combinedImages.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full ${
-              index === safeIndex ? 'bg-white' : 'bg-white bg-opacity-50'
+              index === safeIndex ? "bg-white" : "bg-white bg-opacity-50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

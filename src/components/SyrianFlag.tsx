@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 
 interface SyrianFlagProps {
   className?: string;
@@ -7,27 +6,73 @@ interface SyrianFlagProps {
   height?: number;
 }
 
-const SyrianFlag: React.FC<SyrianFlagProps> = ({ 
-  className = "", 
-  width = 100, 
-  height = 60
+const SyrianFlag: React.FC<SyrianFlagProps> = ({
+  className = "",
+  width = 100,
+  height = 60,
 }) => {
+  // SVG approach for more precise control
   return (
-    <div className={`relative overflow-hidden ${className}`} style={{ width, height }}>
-      {/* Green top stripe */}
-      <div className="absolute top-0 left-0 w-full h-1/3 bg-[#007A3D]"></div>
-      
-      {/* White middle stripe with stars */}
-      <div className="absolute top-1/3 left-0 w-full h-1/3 bg-white flex justify-center items-center">
-        <div className="flex space-x-4">
-          <div className="text-[#CE1126] text-lg">★</div>
-          <div className="text-[#CE1126] text-lg">★</div>
-          <div className="text-[#CE1126] text-lg">★</div>
-        </div>
-      </div>
-      
-      {/* Black bottom stripe */}
-      <div className="absolute top-2/3 left-0 w-full h-1/3 bg-black"></div>
+    <div className={className} style={{ width, height }}>
+      <svg
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Green top stripe */}
+        <rect x="0" y="0" width={width} height={height / 3} fill="#007A3D" />
+
+        {/* White middle stripe */}
+        <rect
+          x="0"
+          y={height / 3}
+          width={width}
+          height={height / 3}
+          fill="#FFFFFF"
+        />
+
+        {/* Three red stars */}
+        <text
+          x={width * 0.25}
+          y={height / 2 + height / 15}
+          fill="#CE1126"
+          fontSize={height / 5}
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          ★
+        </text>
+        <text
+          x={width * 0.5}
+          y={height / 2 + height / 15}
+          fill="#CE1126"
+          fontSize={height / 5}
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          ★
+        </text>
+        <text
+          x={width * 0.75}
+          y={height / 2 + height / 15}
+          fill="#CE1126"
+          fontSize={height / 5}
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          ★
+        </text>
+
+        {/* Black bottom stripe */}
+        <rect
+          x="0"
+          y={(height * 2) / 3}
+          width={width}
+          height={height / 3}
+          fill="#000000"
+        />
+      </svg>
     </div>
   );
 };
