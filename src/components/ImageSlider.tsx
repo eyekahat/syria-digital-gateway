@@ -47,13 +47,16 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     language === 'ar' ? 'جسر دير الزور المعلق' : 'Deir ez-Zor Suspension Bridge'
   ];
 
+  // Make sure we have a valid current index
+  const safeIndex = currentIndex < images.length ? currentIndex : 0;
+
   return (
     <div className={`relative w-full ${height} overflow-hidden rounded-lg shadow-xl`}>
       {images.map((img, index) => (
         <div
           key={index}
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
+            index === safeIndex ? 'opacity-100' : 'opacity-0'
           }`}
           style={{
             backgroundImage: `url('${img}')`,
@@ -66,7 +69,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
       {overlay && (
         <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-end">
           <div className="p-6 text-white">
-            <h2 className="text-2xl font-bold mb-2">{landmarkNames[currentIndex] || ''}</h2>
+            <h2 className="text-2xl font-bold mb-2">{landmarkNames[safeIndex] || ''}</h2>
             <p className="text-sm">
               {language === 'ar' 
                 ? 'اكتشف جمال سوريا وتراثها الغني عبر البوابة الرقمية السورية' 
@@ -82,7 +85,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full ${
-              index === currentIndex ? 'bg-white' : 'bg-white bg-opacity-50'
+              index === safeIndex ? 'bg-white' : 'bg-white bg-opacity-50'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

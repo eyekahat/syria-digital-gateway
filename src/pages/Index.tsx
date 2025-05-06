@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import ServiceCard from '@/components/ServiceCard';
@@ -62,6 +61,9 @@ const Index = () => {
     '/lovable-uploads/344aa62b-108f-4515-956a-f31e3729c1ef.png',  // Aleppo citadel gate
     '/lovable-uploads/9a0fbebe-b141-4b81-851d-f3a51d207c2b.png',  // Deir ez-Zor bridge
   ];
+  
+  // New correct flag image
+  const syrianFlagImage = '/lovable-uploads/e3441add-68a9-476d-9fcb-67bfe6c18608.png';
 
   return (
     <Layout>
@@ -73,7 +75,7 @@ const Index = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-2xl animate-fade-in">
               <div className="flex items-center mb-6">
-                <SyrianFlag width={60} height={40} animate={true} className="mr-4" />
+                <SyrianFlag width={60} height={40} className="mr-4" />
                 <h1 className="text-4xl md:text-5xl font-bold text-white">
                   {language === 'ar'
                     ? 'البوابة الرقمية السورية'
