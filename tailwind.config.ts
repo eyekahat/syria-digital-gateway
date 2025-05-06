@@ -65,10 +65,9 @@ export default {
 				},
 				// Syrian flag colors
 				syria: {
-					red: '#CE1126',
+					green: '#007A3D',
 					white: '#FFFFFF',
 					black: '#000000',
-					green: '#007A3D',
 					gray: '#F5F5F5',
 					'dark-gray': '#333333',
 				}
@@ -98,6 +97,11 @@ export default {
 				'slide-in': {
 					'0%': { transform: 'translateX(-100%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				'flag-wave': {
+					'0%': { transform: 'skewX(0deg)' },
+					'50%': { transform: 'skewX(5deg)' },
+					'100%': { transform: 'skewX(0deg)' }
 				}
 			},
 			animation: {
@@ -105,7 +109,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'fade-out': 'fade-out 0.5s ease-out forwards',
-				'slide-in': 'slide-in 0.5s ease-out forwards'
+				'slide-in': 'slide-in 0.5s ease-out forwards',
+				'flag-wave': 'flag-wave 3s ease-in-out infinite'
 			},
 			fontFamily: {
 				'arabic': ['Noto Sans Arabic', 'sans-serif'],

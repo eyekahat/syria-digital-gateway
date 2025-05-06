@@ -16,10 +16,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
 
-    --primary: 354 82% 44%;
+    --primary: 142 100% 24%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 120 100% 24%;
+    --secondary: 142 76% 36%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 95%;
@@ -39,7 +39,7 @@
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 354 82% 44%;
+    --sidebar-primary: 142 100% 24%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 0 0% 95%;
     --sidebar-accent-foreground: 0 0% 20%;
@@ -57,10 +57,10 @@
     --popover: 0 0% 15%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 354 82% 44%;
+    --primary: 142 76% 36%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 120 100% 24%;
+    --secondary: 142 50% 20%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 20%;
@@ -78,7 +78,7 @@
     
     --sidebar-background: 0 0% 15%;
     --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 354 82% 44%;
+    --sidebar-primary: 142 76% 36%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 0 0% 20%;
     --sidebar-accent-foreground: 0 0% 95%;
@@ -117,6 +117,40 @@
   }
   
   .syria-gradient {
-    @apply bg-gradient-to-r from-syria-red via-syria-white to-syria-green;
+    @apply bg-gradient-to-r from-syria-green via-syria-white to-syria-black;
   }
+
+  /* Dark mode adjustments */
+  .dark .bg-white {
+    @apply bg-card text-card-foreground;
+  }
+
+  .dark .bg-gray-50 {
+    @apply bg-muted;
+  }
+
+  .dark .text-gray-600 {
+    @apply text-muted-foreground;
+  }
+
+  .dark .border-gray-300 {
+    @apply border-border;
+  }
+}
+
+/* Flag animation */
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.flag-wave {
+  animation: wave 3s ease-in-out infinite;
 }

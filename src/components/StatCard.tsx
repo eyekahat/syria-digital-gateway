@@ -19,7 +19,7 @@ const StatCard: React.FC<StatCardProps> = ({
   // Trend indicator colors
   const trendColors = {
     up: 'text-syria-green',
-    down: 'text-syria-red',
+    down: 'text-gray-600',
     neutral: 'text-gray-500'
   };
 

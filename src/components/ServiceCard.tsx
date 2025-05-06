@@ -8,7 +8,7 @@ interface ServiceCardProps {
   description: string;
   icon: React.ReactNode;
   to: string;
-  color?: 'red' | 'green' | 'default';
+  color?: 'green' | 'default';
   language: string;
 }
 
@@ -21,7 +21,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   language
 }) => {
   const colorClasses = {
-    red: 'border-t-4 border-t-syria-red',
     green: 'border-t-4 border-t-syria-green',
     default: ''
   };
@@ -44,7 +43,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
       <p className="text-gray-600 text-sm mb-4 flex-grow">{description}</p>
-      <div className="text-syria-red text-sm font-medium mt-auto">
+      <div className="text-syria-green text-sm font-medium mt-auto">
         {language === 'ar' ? 'استعرض الخدمة ←' : 'View Service →'}
       </div>
     </Link>
