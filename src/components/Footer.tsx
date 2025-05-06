@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SyrianFlag from './SyrianFlag';
 
 interface FooterProps {
   language: string;
@@ -22,12 +23,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
                 : 'Towards a unified digital Syria with simplified and secure government services for citizens.'}
             </p>
             <div className="flex items-center gap-2 mt-4">
-              <div className="h-8 w-8 rounded overflow-hidden relative">
-                <div className="absolute top-0 h-1/3 w-full bg-syria-red"></div>
-                <div className="absolute top-1/3 h-1/3 w-full bg-white"></div>
-                <div className="absolute top-2/3 h-1/3 w-full bg-syria-black"></div>
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-syria-green text-xs">★★</div>
-              </div>
+              <SyrianFlag width={40} height={24} />
             </div>
           </div>
 

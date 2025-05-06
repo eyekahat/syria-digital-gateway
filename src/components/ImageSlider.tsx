@@ -19,6 +19,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (images.length === 0) return;
+    
     const slideInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, interval);
@@ -47,8 +49,17 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     language === 'ar' ? 'جسر دير الزور المعلق' : 'Deir ez-Zor Suspension Bridge'
   ];
 
-  // Make sure we have a valid current index
-  const safeIndex = currentIndex < images.length ? currentIndex : 0;
+  // Make sure we have a valid current index and there are images to display
+  const safeIndex = images && images.length > 0 ? (currentIndex < images.length ? currentIndex : 0) : 0;
+  
+  // If there are no images, show a placeholder
+  if (!images || images.length === 0) {
+    return (
+      <div className={`relative w-full ${height} bg-gray-200 flex items-center justify-center rounded-lg`}>
+        <p className="text-gray-500">No images available</p>
+      </div>
+    );
+  }
 
   return (
     <div className={`relative w-full ${height} overflow-hidden rounded-lg shadow-xl`}>

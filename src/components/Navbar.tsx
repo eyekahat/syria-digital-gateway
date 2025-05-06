@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleLanguage, language }) => {
               {/* Logo and title */}
               <div className="flex items-center gap-3">
                 <Link to="/" className="flex items-center gap-2">
-                  <SyrianFlag width={40} height={30} animate={false} />
+                  <SyrianFlag width={40} height={30} />
                   <div className="font-bold text-lg">
                     {language === 'ar' ? 'البوابة الرقمية السورية' : 'Syrian Digital Gateway'}
                   </div>
