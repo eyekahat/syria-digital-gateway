@@ -61,9 +61,18 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     );
   }
 
+  // Add the new uploaded landmark images to the slider
+  const newLandmarkImages = [
+    '/lovable-uploads/c8981cb3-6f0c-4e46-a6ce-6a2c177fdb9b.png', // Palmyra ruins
+    '/lovable-uploads/1b903316-d238-45c9-9762-48e6771fbb6c.png', // Coastal landscape
+  ];
+
+  // Combine the original images with the new ones if provided
+  const combinedImages = newLandmarkImages.length > 0 ? [...images, ...newLandmarkImages] : images;
+
   return (
     <div className={`relative w-full ${height} overflow-hidden rounded-lg shadow-xl`}>
-      {images.map((img, index) => (
+      {combinedImages.map((img, index) => (
         <div
           key={index}
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
@@ -80,7 +89,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
       {overlay && (
         <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-end">
           <div className="p-6 text-white">
-            <h2 className="text-2xl font-bold mb-2">{landmarkNames[safeIndex] || ''}</h2>
+            <h2 className="text-2xl font-bold mb-2">{landmarkNames[safeIndex % landmarkNames.length] || ''}</h2>
             <p className="text-sm">
               {language === 'ar' 
                 ? 'اكتشف جمال سوريا وتراثها الغني عبر البوابة الرقمية السورية' 
@@ -91,7 +100,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
       )}
       
       <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-        {images.map((_, index) => (
+        {combinedImages.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}

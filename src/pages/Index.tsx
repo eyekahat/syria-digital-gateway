@@ -60,28 +60,24 @@ const Index = () => {
     '/lovable-uploads/e38bc992-1084-4622-aeb5-4dc564f3de4e.png',  // Umayyad mosque
     '/lovable-uploads/344aa62b-108f-4515-956a-f31e3729c1ef.png',  // Aleppo citadel gate
     '/lovable-uploads/9a0fbebe-b141-4b81-851d-f3a51d207c2b.png',  // Deir ez-Zor bridge
+    '/lovable-uploads/c8981cb3-6f0c-4e46-a6ce-6a2c177fdb9b.png',  // Palmyra ruins - new image
+    '/lovable-uploads/1b903316-d238-45c9-9762-48e6771fbb6c.png',  // Coastal landscape - new image
   ];
-  
-  // New correct flag image
-  const syrianFlagImage = '/lovable-uploads/e3441add-68a9-476d-9fcb-67bfe6c18608.png';
 
   return (
     <Layout>
-      {/* Hero Section with Image Slider */}
+      {/* Hero Section with Image Slider - without flag overlay */}
       <section className="relative overflow-hidden">
         <ImageSlider images={landmarkImages} height="h-[70vh]" language={language} />
         
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-2xl animate-fade-in">
-              <div className="flex items-center mb-6">
-                <SyrianFlag width={60} height={40} className="mr-4" />
-                <h1 className="text-4xl md:text-5xl font-bold text-white">
-                  {language === 'ar'
-                    ? 'البوابة الرقمية السورية'
-                    : 'Syrian Digital Gateway'}
-                </h1>
-              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                {language === 'ar'
+                  ? 'البوابة الرقمية السورية'
+                  : 'Syrian Digital Gateway'}
+              </h1>
               <p className="text-xl text-white mb-8">
                 {language === 'ar'
                   ? 'رؤيتنا لسوريا رقمية موحدة، ذات خدمات حكومية مبسطة وآمنة، تخدم المواطنين أينما كانوا.'

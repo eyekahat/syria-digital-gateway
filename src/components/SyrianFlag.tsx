@@ -12,7 +12,6 @@ const SyrianFlag: React.FC<SyrianFlagProps> = ({
   width = 100, 
   height = 60
 }) => {
-  // Static version of the flag with proper proportions and star placement
   return (
     <div className={`relative overflow-hidden ${className}`} style={{ width, height }}>
       {/* Green top stripe */}
@@ -20,7 +19,7 @@ const SyrianFlag: React.FC<SyrianFlagProps> = ({
       
       {/* White middle stripe with stars */}
       <div className="absolute top-1/3 left-0 w-full h-1/3 bg-white flex justify-center items-center">
-        <div className="flex space-x-3">
+        <div className="flex space-x-4">
           <div className="text-[#CE1126] text-lg">★</div>
           <div className="text-[#CE1126] text-lg">★</div>
           <div className="text-[#CE1126] text-lg">★</div>

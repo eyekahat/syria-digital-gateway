@@ -14,17 +14,17 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1 */}
           <div>
-            <h3 className="font-bold text-lg mb-4">
-              {language === 'ar' ? 'البوابة الرقمية السورية' : 'Syrian Digital Gateway'}
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <SyrianFlag width={50} height={30} />
+              <h3 className="font-bold text-lg">
+                {language === 'ar' ? 'البوابة الرقمية السورية' : 'Syrian Digital Gateway'}
+              </h3>
+            </div>
             <p className="text-gray-300 mb-4">
               {language === 'ar' 
                 ? 'نحو سوريا رقمية موحدة، ذات خدمات حكومية مبسطة وآمنة للمواطنين.' 
                 : 'Towards a unified digital Syria with simplified and secure government services for citizens.'}
             </p>
-            <div className="flex items-center gap-2 mt-4">
-              <SyrianFlag width={40} height={24} />
-            </div>
           </div>
 
           {/* Column 2 */}
