@@ -41,7 +41,7 @@ const SyrianFlag: React.FC<SyrianFlagProps> = ({
     let waves = 3; // Number of waves
     
     // Flag animation
-    const animate = (time: number) => {
+    const animateFlag = (time: number) => {
       // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -88,7 +88,7 @@ const SyrianFlag: React.FC<SyrianFlagProps> = ({
         drawStar(ctx, x, starY, 5, 5, 3);
       }
       
-      requestAnimationFrame(animate);
+      requestAnimationFrame(animateFlag);
     };
     
     // Function to draw a star
@@ -118,7 +118,7 @@ const SyrianFlag: React.FC<SyrianFlagProps> = ({
       ctx.fill();
     }
     
-    const animationId = requestAnimationFrame(animate);
+    const animationId = requestAnimationFrame(animateFlag);
     
     return () => {
       cancelAnimationFrame(animationId);
