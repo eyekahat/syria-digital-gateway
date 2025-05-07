@@ -35,31 +35,34 @@ const SyrianFlag: React.FC<SyrianFlagProps> = ({
         {/* Three red stars */}
         <text
           x={width * 0.25}
-          y={height / 2 + height / 15}
+          y={height / 2}
           fill="#CE1126"
-          fontSize={height / 5}
+          fontSize={height / 4}
           textAnchor="middle"
           dominantBaseline="middle"
+          fontWeight="bold"
         >
           ★
         </text>
         <text
           x={width * 0.5}
-          y={height / 2 + height / 15}
+          y={height / 2}
           fill="#CE1126"
-          fontSize={height / 5}
+          fontSize={height / 4}
           textAnchor="middle"
           dominantBaseline="middle"
+          fontWeight="bold"
         >
           ★
         </text>
         <text
           x={width * 0.75}
-          y={height / 2 + height / 15}
+          y={height / 2}
           fill="#CE1126"
-          fontSize={height / 5}
+          fontSize={height / 4}
           textAnchor="middle"
           dominantBaseline="middle"
+          fontWeight="bold"
         >
           ★
         </text>

@@ -42,6 +42,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     language === "ar" ? "جسر دير الزور" : "Deir ez-Zor Bridge",
     language === "ar" ? "مدينة شهبا الأثرية" : "Ancient City of Shahba",
     language === "ar" ? "طرطوس" : "Tartous",
+    language === "ar" ? "حمص" : "Homs",
   ];
 
   // Make sure we have a valid current index and there are images to display

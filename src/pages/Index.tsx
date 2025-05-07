@@ -67,6 +67,7 @@ const Index = () => {
     "/images/ds_euphratesbridge.webp", // جسر الحسكة
     "/images/شهبا.webp", // مدينة شهبا الأثرية
     "/images/41514bc9-e23a-4d49-bf14-ca9dc466d89c_xs.jpg", // طرطوس
+    "/photo/homes (9).jfif", // حمص
   ];
 
   return (

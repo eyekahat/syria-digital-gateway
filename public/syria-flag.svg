@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <!-- Green stripe (top) -->
+  <rect width="900" height="200" fill="#006C35"/>
+  <!-- White stripe (middle) -->
+  <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+  <!-- Black stripe (bottom) -->
+  <rect y="400" width="900" height="200" fill="#000000"/>
+  <!-- Three red stars -->
+  <g fill="#CE1126" transform="translate(450, 300)">
+    <!-- Center star -->
+    <polygon points="0,-40 8.8,-12.3 38.2,-12.3 15.7,4.7 24.5,32.4 0,15.4 -24.5,32.4 -15.7,4.7 -38.2,-12.3 -8.8,-12.3" transform="translate(0, 0)"/>
+    <!-- Left star -->
+    <polygon points="0,-40 8.8,-12.3 38.2,-12.3 15.7,4.7 24.5,32.4 0,15.4 -24.5,32.4 -15.7,4.7 -38.2,-12.3 -8.8,-12.3" transform="translate(-120, 0) scale(0.8)"/>
+    <!-- Right star -->
+    <polygon points="0,-40 8.8,-12.3 38.2,-12.3 15.7,4.7 24.5,32.4 0,15.4 -24.5,32.4 -15.7,4.7 -38.2,-12.3 -8.8,-12.3" transform="translate(120, 0) scale(0.8)"/>
+  </g>
+</svg>

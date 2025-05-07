@@ -34,7 +34,7 @@ const App = () => (
             element={<EntrepreneurServices />}
           />
           <Route path="/proactive-services" element={<ProactiveServices />} />
-          <Route path="/bureaucracy-test" element={<Bureaucracy />} />
+          <Route path="/bureaucracy" element={<Bureaucracy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
