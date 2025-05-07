@@ -34,12 +34,12 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
   const landmarkNames = [
     language === "ar" ? "قلعة حلب" : "Aleppo Citadel",
     language === "ar" ? "نواعير حماة" : "Hama Waterwheels",
-    language === "ar" ? "المسرح الروماني في بصرى" : "Roman Theater in Bosra",
+    language === "ar" ? "جسر الحسكة" : "Hasakah Bridge",
     language === "ar" ? "المسجد الأموي في دمشق" : "Umayyad Mosque in Damascus",
     language === "ar" ? "جامع حبيب النجار" : "Habib Al-Najjar Mosque",
     language === "ar" ? "المسرح الروماني" : "Roman Theater",
-    language === "ar" ? "شاطئ اللاذقية" : "Lattakia Beach",
-    language === "ar" ? "جسر الحسكة" : "Hasakah Bridge",
+    language === "ar" ? "ساعة إدلب" : "Idlib Clock Tower",
+    language === "ar" ? "جسر دير الزور" : "Deir ez-Zor Bridge",
     language === "ar" ? "مدينة شهبا الأثرية" : "Ancient City of Shahba",
     language === "ar" ? "طرطوس" : "Tartous",
   ];

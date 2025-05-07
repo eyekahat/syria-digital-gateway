@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import ServiceCard from "@/components/ServiceCard";
+import ServiceCategory from "@/components/ServiceCategory";
+import ProactiveService from "@/components/ProactiveService";
 import StatCard from "@/components/StatCard";
 import CitizenCard from "@/components/CitizenCard";
 import ImageSlider from "@/components/ImageSlider";
 import SyrianFlag from "@/components/SyrianFlag";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import {
   FileText,
   Users,
@@ -26,6 +29,14 @@ import {
   Building,
   Hospital,
   Database,
+  Briefcase,
+  Heart,
+  PiggyBank,
+  MapPin,
+  Baby,
+  Home,
+  UserCheck,
+  ArrowRight,
 } from "lucide-react";
 
 const Index = () => {
@@ -82,17 +93,21 @@ const Index = () => {
                   : "Our vision for a unified digital Syria with simplified and secure government services, serving citizens wherever they are."}
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button className="bg-syria-green hover:bg-syria-green/90 text-lg px-6 py-6">
-                  {language === "ar"
-                    ? "تصفح الخدمات الحكومية"
-                    : "Browse Government Services"}
-                </Button>
-                <Button
-                  variant="outline"
-                  className="text-lg px-6 py-6 text-white border-white hover:bg-white/20"
-                >
-                  {language === "ar" ? "عن المشروع" : "About the Project"}
-                </Button>
+                <Link to="/citizen-services">
+                  <Button className="bg-syria-green hover:bg-syria-green/90 text-lg px-6 py-6">
+                    {language === "ar" ? "خدمات المواطن" : "Citizen Services"}
+                  </Button>
+                </Link>
+                <Link to="/entrepreneur-services">
+                  <Button
+                    variant="outline"
+                    className="text-lg px-6 py-6 text-white border-white hover:bg-white/20"
+                  >
+                    {language === "ar"
+                      ? "خدمات رواد الأعمال"
+                      : "Entrepreneur Services"}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -149,6 +164,75 @@ const Index = () => {
                 ? "البيانات المعروضة هي لأغراض العرض فقط"
                 : "Data shown is for demonstration purposes only"}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Categories Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-2 text-center">
+            {language === "ar"
+              ? "فئات الخدمات الرئيسية"
+              : "Main Service Categories"}
+          </h2>
+          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+            {language === "ar"
+              ? "اختر فئة الخدمات التي تناسب احتياجاتك"
+              : "Choose the service category that suits your needs"}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <ServiceCategory
+              title={
+                language === "ar"
+                  ? "الخدمات الإلكترونية للمواطن"
+                  : "E-services for citizen"
+              }
+              description={
+                language === "ar"
+                  ? "خدمات مصممة لتلبية احتياجات المواطنين في مختلف مجالات الحياة اليومية"
+                  : "Services designed to meet citizens' needs in various areas of daily life"
+              }
+              icon={<Users />}
+              to="/citizen-services"
+              language={language}
+              bgColor="bg-blue-50"
+            />
+
+            <ServiceCategory
+              title={
+                language === "ar"
+                  ? "الخدمات الإلكترونية لرواد الأعمال"
+                  : "E-services for entrepreneurs"
+              }
+              description={
+                language === "ar"
+                  ? "خدمات مخصصة للشركات ورواد الأعمال لتسهيل الأعمال التجارية والإدارية"
+                  : "Services dedicated to companies and entrepreneurs to facilitate business and administrative operations"
+              }
+              icon={<Briefcase />}
+              to="/entrepreneur-services"
+              language={language}
+              bgColor="bg-green-50"
+            />
+
+            <ServiceCategory
+              title={
+                language === "ar"
+                  ? "الخدمات الحكومية الاستباقية"
+                  : "Proactive government services"
+              }
+              description={
+                language === "ar"
+                  ? "خدمات تقدمها الدولة بشكل استباقي في مراحل الحياة المختلفة"
+                  : "Services provided proactively by the state at different life stages"
+              }
+              icon={<Heart />}
+              to="/proactive-services"
+              language={language}
+              bgColor="bg-red-50"
+            />
           </div>
         </div>
       </section>
@@ -420,6 +504,71 @@ const Index = () => {
             <div className="md:w-1/2">
               <CitizenCard language={language} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Proactive Government Services Section */}
+      <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-2 text-center">
+            {language === "ar"
+              ? "الخدمات الحكومية الاستباقية"
+              : "Proactive government services"}
+          </h2>
+          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+            {language === "ar"
+              ? "خدمات مصممة لتلبية احتياجاتك في مراحل الحياة المختلفة"
+              : "Services designed to meet your needs at different life stages"}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ProactiveService
+              title={language === "ar" ? "الزواج" : "Getting married"}
+              icon={<Heart />}
+              to="/services/getting-married"
+              userType={language === "ar" ? "المواطن" : "Citizen"}
+              language={language}
+            />
+
+            <ProactiveService
+              title={
+                language === "ar" ? "الاستقرار في سوريا" : "Settling in Syria"
+              }
+              icon={<MapPin />}
+              to="/services/settling"
+              userType={language === "ar" ? "المواطن" : "Citizen"}
+              language={language}
+            />
+
+            <ProactiveService
+              title={language === "ar" ? "معاشي التقاعدي" : "My Pension"}
+              icon={<PiggyBank />}
+              to="/services/my-pension"
+              userType={language === "ar" ? "المواطن" : "Citizen"}
+              language={language}
+            />
+
+            <ProactiveService
+              title={language === "ar" ? "ولادة طفل" : "Birth of a child"}
+              icon={<Baby />}
+              to="/services/birth-child"
+              userType={language === "ar" ? "المواطن" : "Citizen"}
+              language={language}
+            />
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link to="/proactive-services">
+              <Button variant="outline" className="mt-4 group">
+                <span>
+                  {language === "ar"
+                    ? "عرض جميع الخدمات الاستباقية"
+                    : "View all proactive services"}
+                </span>
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
